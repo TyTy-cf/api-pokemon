@@ -1,0 +1,32 @@
+
+body {
+  background-color: $main-background-color;
+  font-size: $font-size;
+}
+
+.col-20 {
+  flex: 0 0 auto;
+  width: 20%;
+}
+
+.card-pkmn {
+    text-decoration: none;
+    font-size: 20px;
+    color: $main-font-color;
+
+  &:hover {
+    background-color: $main-font-color;
+    color: $main-background-color;
+  }
+}
+
+.panel-infos {
+  background-color: white;
+  color: black;
+  border: 2px solid $main-font-color;
+
+  .title {
+    color: $main-font-color;
+  }
+}
+

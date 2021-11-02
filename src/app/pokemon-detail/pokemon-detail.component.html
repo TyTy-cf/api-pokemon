@@ -1,0 +1,23 @@
+
+<h1>{{pokemon.name | uppercase}} #{{pokemon.order}}</h1>
+
+
+<div class="row">
+  <div class="col-6">
+    <img class="img-fluid" [src]="pokemon.sprites.other['official-artwork'].front_default">
+  </div>
+  <div class="col-6">
+    <div class="row">
+      <div class="col" *ngFor="let type of pokemon.types">
+        <img class="img-fluid" src="/assets/pkmn-types/type-{{type.type.name}}.png">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col panel-infos" *ngFor="let ability of pokemon.abilities">
+        <p class="title">{{ability.ability.name}}
+          <span class="label" [hidden]="!ability.is_hidden">Talent caché</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

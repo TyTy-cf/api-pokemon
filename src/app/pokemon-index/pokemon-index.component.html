@@ -1,0 +1,30 @@
+
+<div class="row col-6 btn-group mx-auto">
+  <button class="col-6 btn btn-info"
+          [disabled]="pokeApiResponse.previous === null"
+          (click)="loadPokemons(pokeApiResponse.previous, -20)"
+  >
+    Previous
+  </button>
+  <button class="col-6 btn btn-info"
+          [disabled]="pokeApiResponse.next === null"
+          (click)="loadPokemons(pokeApiResponse.next, 20)"
+  >
+    Next
+  </button>
+</div>
+
+<div class="row my-5">
+  <a class="col-20 mb-5 card-pkmn" *ngFor="let apiPokemon of arrayPokemon | slice:limit:limit+20" routerLink="/pokemons/{{apiPokemon.id}}">
+    <div>
+      <img class="img-fluid" [src]="apiPokemon.sprites.other['official-artwork'].front_default">
+    </div>
+    <h2>{{apiPokemon.name | uppercase}}</h2>
+    <p> #{{apiPokemon.order}}</p>
+    <div class="row">
+      <div class="col-6" *ngFor="let type of apiPokemon.types">
+        <img class="img-fluid" src="/assets/pkmn-types/type-{{type.type.name}}.png">
+      </div>
+    </div>
+  </a>
+</div>
